@@ -5,31 +5,25 @@
 # uncomment to see the script run in action
 #set -x
 
-# colors
-blue='\e[1;34m'
-brown='\e[0;33m'
-green='\e[1;32m'
-reset='\033[0m'
-
-echo -e "${blue}Updating and doing some minor checks...${reset}\n"
+echo -e "Updating and doing some minor checks...\n"
 
 function install() {
 	command -v "$1" &> /dev/null
 
 	#shellcheck disable=SC2181
 	if [ $? -ne 0 ]; then
-		echo -e "	Installing: ${brown}$1${reset}\n"
+		echo -e "	Installing: $1$\n"
 		sudo apt-get update -y -qq && \
 			sudo apt-get install -y "$1" -qq
 		echo -e "\n"
 	else
-		echo -e "	${green}${1} is already installed.${reset}\n"
+		echo -e "	${1} is already installed.\n"
 	fi
 }
 
 install nginx #install nginx
 
-echo -e "\n${blue}Setting up some minor stuff.${reset}\n"
+echo -e "\nSetting up some minor stuff.\n"
 
 # allowing nginx on firewall
 sudo ufw allow 'Nginx HTTP'
