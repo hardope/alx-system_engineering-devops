@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# manages manage_my_process by either starting it, stopping it or restarting it.
+
+command="$1"
+
+if [ -z "$command" ]; then
+  echo "Usage: manage_my_process {start|stop|restart}"
+  exit
+fi
+
+if [ "$command" == "start" ]; then
+
+  bash ./manage_my_process &
+  echo "$!" > /var/run/my_process.pid
+  echo "manage_my_process started"
+
+elif [ "$command" == "stop" ]; then
+  [ -e "/var/run/my_process.pid" ] && pkill -f './manage_my_process' && rm /var/run/my_process.pid
+  echo "manage_my_process stopped"
+
+elif [ "$command" == "restart" ]; then
+
+  "$0" stop >& /dev/null
+  "$0" start >& /dev/null
+  echo "manage_my_process restarted"
+
+else
+  echo "Usage: manage_my_process {start|stop|restart}" 
+fi
