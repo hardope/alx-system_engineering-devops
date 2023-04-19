@@ -1,8 +1,7 @@
-#!/usr/bin/env bash
-# Fixe server bug
-chmod 644 /etc/nginx/nginx.conf
-sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
-sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
+#i/usr/bin/env bash
+# script to change root user in nginx
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-enabled/default
+chmod 644 /etc/nginx/nginx.cfg
 pkill apache2
-su nginx -s /bin/bash -c 'service nginx restart'
-# Done
+sudo -u nginx service nginx retstart
