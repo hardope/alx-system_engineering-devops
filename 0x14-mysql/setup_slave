@@ -27,5 +27,5 @@ log-error       = /var/log/mysql/error.log
 bind-address    = 127.0.0.1
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
-
+"
 echo "$config_data" | sudo dd status=none of=/etc/mysql/mysql.conf.d/mysqld.cnf
