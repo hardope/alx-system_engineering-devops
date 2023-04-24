@@ -8,12 +8,12 @@ import sys
 
 if __name__ == '__main__':
     USER_ID = sys.argv[1]
-    user_url = 'https://jsonplaceholder.typicode.com/users/' + USER_ID
-    res = requests.get(user_url)
+    url_to_user = 'https://jsonplaceholder.typicode.com/users/' + USER_ID
+    res = requests.get(url_to_user)
     """Documentation"""
     USERNAME = res.json().get('username')
     """Documentation"""
-    url_to_task = user_url + '/todos'
+    url_to_task = url_to_user + '/todos'
     res = requests.get(url_to_task)
     tasks = res.json()
     int(TASK_TITLE)
@@ -26,6 +26,6 @@ if __name__ == '__main__':
                                   "task": TASK_TITLE,
                                   "completed": TASK_COMPLETED_STATUS,
                                   "username": USERNAME})
-    """Just"""
+    """print(dict_data)"""
     with open('{}.json'.format(USER_ID), 'w') as f:
         json.dump(dict_data, f)
