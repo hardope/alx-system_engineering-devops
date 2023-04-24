@@ -1,17 +1,15 @@
 #!/usr/bin/python3
 """ Export api to csv"""
 import csv
-import sys
 import requests
-
-
+import sys
 
 if __name__ == '__main__':
     uid = sys.argv[1]
-    url_to_user = 'https://jsonplaceholder.typicode.com/users/' + uid
-    res = requests.get(url_to_user)
+    url = 'https://jsonplaceholder.typicode.com/users/' + uid
+    res = requests.get(url)
     USERNAME = res.json().get('username')
-    url_to_task = url_to_user + '/todos'
+    url_to_task = url + '/todos'
     res = requests.get(url_to_task)
     tasks = res.json()
 
