@@ -16,13 +16,6 @@ if __name__ == '__main__':
     url_to_task = url_to_user + '/todos'
     res = requests.get(url_to_task)
     tasks = res.json()
-    """print(tasks)
-    for task in tasks:
-        TASK_COMPLETED_STATUS = task.get('completed')
-        print(TASK_COMPLETED_STATUS)
-        TASK_TITLE = task.get('title')
-        print(TASK_TITLE)
-    """
 
     dict_data = {USER_ID: []}
     for task in tasks:
