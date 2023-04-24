@@ -2,25 +2,23 @@
 """ Export api to csv"""
 import csv
 import sys
-import requests
-
 
 
 if __name__ == '__main__':
-    USER_ID = sys.argv[1]
-    url_to_user = 'https://jsonplaceholder.typicode.com/users/' + USER_ID
-    res = requests.get(url_to_user)
+    user = sys.argv[1]
+    url_user = 'https://jsonplaceholder.typicode.com/users/' + user
+    res = requests.get(url_user)
     """print(res.text)"""
-    USERNAME = res.json().get('username')
-    url_to_task = url_to_user + '/todos'
-    res = requests.get(url_to_task)
+    user_name = res.json().get('username')
+    task = url_user + '/todos'
+    res = requests.get(task)
     tasks = res.json()
 
-    with open('{}.csv'.format(USER_ID), 'w') as csvfile:
+    with open('{}.csv'.format(user), 'w') as csvfile:
         for task in tasks:
-            TASK_COMPLETED_STATUS = task.get('completed')
-            """print(TASK_COMPLETED_STATUS)"""
-            TASK_TITLE = task.get('title')
-            """print(TASK_TITLE)"""
+            completed_tasks = task.get('completed')
+            """print(completed_tasks)"""
+            title = task.get('title')
+            """print(title)"""
             csvfile.write('"{}","{}","{}","{}"\n'.format(
-                USER_ID, USERNAME, TASK_COMPLETED_STATUS, TASK_TITLE))
+                user, user_name, completed_tasks, title))
