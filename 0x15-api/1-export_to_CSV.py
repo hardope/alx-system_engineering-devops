@@ -2,6 +2,8 @@
 """ Export api to csv"""
 import csv
 import sys
+import requests
+
 
 
 if __name__ == '__main__':
@@ -16,9 +18,9 @@ if __name__ == '__main__':
 
     with open('{}.csv'.format(user), 'w') as csvfile:
         for task in tasks:
-            completed_tasks = task.get('completed')
-            """print(completed_tasks)"""
-            title = task.get('title')
-            """print(title)"""
+            completed = task.get('completed')
+            """print(completed)"""
+            TASK_TITLE = task.get('title')
+            """print(TASK_TITLE)"""
             csvfile.write('"{}","{}","{}","{}"\n'.format(
-                user, user_name, completed_tasks, title))
+                user, user_name, completed, TASK_TITLE))
