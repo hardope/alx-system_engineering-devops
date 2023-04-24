@@ -14,9 +14,11 @@ if __name__ == '__main__':
     res = requests.get(task_url)
     tasks = res.json()
 
+    """ Documentstion """
     with open(f'{uid}.csv', 'w') as csvfile:
         """ Documentstion """
         for task in tasks:
+            """ Documentstion """
             status = task.get('completed')
             title = task.get('title')
             csvfile.write('"{}","{}","{}","{}"\n'.format(
