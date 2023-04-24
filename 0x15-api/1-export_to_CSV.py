@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 """ Export api to csv"""
 import csv
-import sys
 import requests
-
-
+import sys
 
 if __name__ == '__main__':
     user = sys.argv[1]
@@ -20,7 +18,7 @@ if __name__ == '__main__':
         for task in tasks:
             completed = task.get('completed')
             """print(completed)"""
-            TASK_TITLE = task.get('title')
-            """print(TASK_TITLE)"""
+            title_task = task.get('title')
+            """print(title_task)"""
             csvfile.write('"{}","{}","{}","{}"\n'.format(
-                user, user_name, completed, TASK_TITLE))
+                user, user_name, completed, title_task))
