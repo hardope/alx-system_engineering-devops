@@ -5,7 +5,6 @@ import requests
 import sys
 
 if __name__ == '__main__':
-    """ Documentstion """
     uid = sys.argv[1]
     url = 'https://jsonplaceholder.typicode.com/users/' + uid
     res = requests.get(url)
@@ -14,12 +13,11 @@ if __name__ == '__main__':
     res = requests.get(task_url)
     tasks = res.json()
 
-    """ Documentstion """
     with open(f'{uid}.csv', 'w') as csvfile:
-        """ Documentstion """
         for task in tasks:
-            """ Documentstion """
-            status = task.get('completed')
-            title = task.get('title')
+            TASK_COMPLETED_STATUS = task.get('completed')
+            """print(TASK_COMPLETED_STATUS)"""
+            TASK_TITLE = task.get('title')
+            """print(TASK_TITLE)"""
             csvfile.write('"{}","{}","{}","{}"\n'.format(
-                uid, user, status, title))
+                uid, user, TASK_COMPLETED_STATUS, TASK_TITLE))
