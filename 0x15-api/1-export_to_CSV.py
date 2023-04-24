@@ -5,6 +5,7 @@ import requests
 import sys
 
 if __name__ == '__main__':
+    """ Documentstion """
     uid = sys.argv[1]
     url = 'https://jsonplaceholder.typicode.com/users/' + uid
     res = requests.get(url)
