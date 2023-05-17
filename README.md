@@ -1,4 +1,4 @@
-# 0x00 ALX System Engineering & DevOps
+# ALX System Engineering & DevOps
 
 ---
 
