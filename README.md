@@ -1,5 +1,10 @@
 # ALX System Engineering & DevOps
 
+* Bash
+* Shell Scripting
+* Linux
+* Ubuntu servers
+
 ---
 
 - [0x00](./0x00-shell_basics) : Writing basic bash scripts that perform basic stuff.
