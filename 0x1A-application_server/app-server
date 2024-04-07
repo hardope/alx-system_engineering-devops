@@ -2,6 +2,7 @@ echo "Updating Packages and Installing Requirements"
 
 # Update Package Manager
 sudo apt-get update
+sudo apt-get install -y nginx
 # Install pip
 sudo apt-get install -y python3-pip
 # Install Flask, flask_cors, sqlalchemy Using PIP
