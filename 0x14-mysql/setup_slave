@@ -1,7 +1,4 @@
-echo -e "*** Allow Port **\n"
-sudo ufw allow 3306
 sudo ufw disable
-sudo ufw enable
 config_data=\
 "
 # The MySQL  Server configuration file.
@@ -29,3 +26,6 @@ bind-address    = 127.0.0.1
 symbolic-links=0
 "
 echo "$config_data" | sudo dd status=none of=/etc/mysql/mysql.conf.d/mysqld.cnf
+
+sudo service mysql restart
+echo "Done!!"
